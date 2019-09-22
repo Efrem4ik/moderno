@@ -66,15 +66,15 @@
   color: #fff;
   text-align: center;
   &-title{
+    @include f700;
     font-size: 48px;
     line-height: 72px;
-    font-weight: 700;
     margin-bottom: 10px;
   }
   &-text{
+    @include f500;
     font-size: 20px;
     line-height: 30px;
-    font-weight: 500;
     margin-bottom: 50px;
   }
   &-form{
@@ -82,6 +82,7 @@
     margin: 0 auto;
     position: relative;
     input{
+      @include f500;
       display: block;
       width: 100%;
       box-shadow: 0 1px 10px rgba(124, 178, 64, 0.75);
@@ -89,12 +90,11 @@
       height: 56px;
       border: none;
       font-size: 14px;
-      font-weight: 500;
       padding-left: 25px;
       padding-right: 60px;
       &::placeholder{
         color: #90a4ae;
-        font-weight: 500;
+        @include f500;
       }
     }
     button{
@@ -150,12 +150,12 @@
     display: block;
   }
   &-content{
+    @include f500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
     min-height: 90px;
-    font-weight: 500;
     border-bottom: 1px solid #e7ecf2;
   }
   &-name{
@@ -172,9 +172,9 @@
     font-size: 14px;
   }
   &-price{
+    @include f500;
     font-size: 20px;
     color: $bg;
-    font-weight: 700;
   }
   &-info{
     display: flex;
@@ -197,8 +197,8 @@
       display: inline-block;
       margin-right: 14px;    
       span{
+      @include f500;
       font-size: 14px;
-      font-weight: 500;
       }
     }
   }
@@ -252,3 +252,56 @@
   }
 }
 //end product-slider
+
+// start block Advantages
+
+.advantages {
+  background-color: $bg;
+  padding: 110px 0;
+}
+.advantages__title {
+  color: #fff;
+}
+.advantages__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.advantages__item{
+  max-width: 370px;
+  text-align: center;
+  &:hover{
+    .advantages__item-images{
+      background-color: $green;
+      path{
+        fill: #fff;
+      }
+    }
+    .advantages__item-title{
+      color: $green;
+    }
+  }
+  &-images{
+    width: 114px;
+    height: 114px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    transition: all .3s;
+  }
+  &-title{
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #fff;
+    @include f500;
+    transition: all .3s;
+  }
+  &-text{
+    font-size: 15px;
+  }
+}
+
+// end block Advantages

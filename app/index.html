@@ -152,7 +152,8 @@
                     </ul>
                   </div>
                 </div>
-                <a class="header__btn header__btn-login header__btn-login--on" href="#">Login</a>
+                <a class="header__btn header__btn-login header__btn-login--on" data-fancybox data-src="#modal"
+                  href="javascript:;">Login</a>
                 <a class="header__btn header__btn-logout header__btn-login--off" href="#">Logout</a>
                 <a class="header__btn header__btn-register header__btn-login--on" href="#">Register</a>
               </div>
@@ -1080,7 +1081,28 @@
         </div>
       </div>
     </footer>
+
   </div>
+
+  <div id="modal">
+    <div class="login__wrapper">
+      <div class="login__title">
+        Login
+      </div>
+      <form>
+        <label for="" class="login__label-name">
+          <input type="text" placeholder="Name" required>
+        </label>
+        <label for="" class="login__label-pass">
+          <input type="text" placeholder="Password" required>
+        </label>
+        <button type="submit">Submit</button>
+        <a href="#" class="creat-acc">Create An Account?</a>
+        <a href="#" class="lost-pass">Lost Password?</a>
+      </form>
+    </div>
+  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/libs.min.js"></script>
   <script src="js/main.js"></script>

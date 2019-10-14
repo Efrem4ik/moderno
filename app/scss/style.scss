@@ -500,10 +500,20 @@
     }
   }
 }
+.products__wrapper,
+.product-slider__wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 .products__inner-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin-left: -30px;
   flex-wrap: wrap;
+}
+.products .product__item {
+  flex-basis: calc(25% - 30px);
+  margin-left: 30px;
 }
 .product__item {
   max-width: 442px;
@@ -727,6 +737,7 @@
     &-images {
       img {
         display: block;
+        width: 100%;
       }
     }
     &-title {
@@ -1115,9 +1126,10 @@ button.icon-unsorted {
 }
 .product-page__content {
   .product__item {
-    max-width: 270px;
+    flex-basis: calc(33.3333% - 30px);
     background-color: #ffffff;
     transition: all 0.5s;
+    margin-left: 30px;
   }
   .product__item-img {
     min-height: 180px;
@@ -1141,9 +1153,10 @@ button.icon-unsorted {
 }
 .product-page__items {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  margin-left: -30px;
 }
 .pagination {
   &__list {
@@ -1213,6 +1226,7 @@ button.icon-unsorted {
 .product__item {
   &.list {
     max-width: 100%;
+    flex-basis: 100%;
     .product__item-img {
       width: 240px;
       float: left;
@@ -1238,7 +1252,7 @@ button.icon-unsorted {
       padding-top: 23px;
     }
     .product__item-name {
-      min-width: 480px;
+      max-width: 480px;
     }
     .product__item-list {
       display: block;
@@ -1276,7 +1290,7 @@ button.icon-unsorted {
       justify-content: center;
       align-items: center;
       margin-bottom: 30px;
-      padding: 16px 0;
+      padding: 16px;
     }
   }
   &__title {
@@ -1834,15 +1848,39 @@ button.icon-unsorted {
     background-color: #f9f9f9;
     border: 1px solid #dedede;
   }
-  select {
+  .jq-selectbox {
     max-width: 540px;
     width: 100%;
-    height: 40px;
-    padding: 0 10px;
-    color: #000;
-    background-color: #f9f9f9;
-    border: 1px solid #dedede;
-    color: #707070;
+    &__select {
+      height: 40px;
+      padding: 0 18px;
+      border: 1px solid #d7d7d7;
+      border-bottom-color: #d7d7d7;
+      border-radius: 0;
+      background: #f9f9f9;
+      box-shadow: none;
+      text-shadow: none;
+      color: #707070;
+      font-size: 15px;
+      line-height: 40px;
+      font-family: "Roboto-Regular", sans-serif;
+    }
+    .jq-selectbox__trigger-arrow {
+      border: none;
+      right: 20px;
+      top: -3px;
+      font-size: 15px;
+      &::before {
+        content: "\f0dd";
+        font-family: "icomoon";
+      }
+    }
+    .jq-selectbox__trigger {
+      border-left: none;
+    }
+    .jq-selectbox__dropdown {
+      top: 40px;
+    }
   }
 }
 // end settings
@@ -1855,8 +1893,8 @@ button.icon-unsorted {
         font-weight: 500;
         color: #707070;
         position: relative;
-        &.active{
-          &::before{
+        &.active {
+          &::before {
             color: $green;
           }
         }
@@ -2036,4 +2074,266 @@ button.icon-unsorted {
   }
 }
 // end profile
+// start upload
+.upload__inner {
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 110px;
+  &-title {
+    padding: 16px 35px 18px;
+    margin-bottom: 40px;
+    @include f500;
+    font-size: 24px;
+    color: $bg;
+    border-bottom: 1px solid #d7d7d7;
+  }
+  &-content {
+    margin-bottom: 30px;
+    padding-left: 45px;
+    padding-right: 50px;
+  }
+  button {
+    color: #fff;
+    background-color: $green;
+    border: none;
+    padding: 15px 36px;
+    cursor: pointer;
+    margin-left: 175px;
+  }
+}
+.upload-line {
+  margin-bottom: 25px;
+  display: flex;
+  label {
+    padding-top: 5px;
+    max-width: 175px;
+    width: 100%;
+    padding-right: 15px;
+    color: #444;
+    span {
+      color: $green;
+    }
+  }
+  select,
+  input,
+  textarea {
+    width: 100%;
+    display: block;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+    padding: 0 18px;
+    &::placeholder {
+      color: #707070;
+    }
+  }
+  textarea {
+    resize: none;
+    height: 150px;
+    padding: 8px 18px;
+  }
+  input[type="file"] {
+    outline: none;
+  }
+  .jq-file {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+    &__name {
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      padding: 0 18px;
+      border: none;
+      border-bottom-color: transparent;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: 12px;
+      line-height: 40px;
+      color: #707070;
+      margin-left: 90px;
+    }
+    &__browse {
+      position: absolute;
+      top: 5px;
+      right: auto;
+      left: 9px;
+      font-size: 12px;
+      line-height: 26px;
+      color: #444;
+      padding: 0 12px;
+      border: 1px solid #d7d7d7;
+      border-left: none;
+      border-radius: 0;
+      background: #fff;
+      box-shadow: none;
+      text-shadow: none;
+    }
+  }
+  .jq-selectbox {
+    width: 100%;
+    &__select {
+      height: 40px;
+      padding: 0 18px;
+      border: 1px solid #d7d7d7;
+      border-bottom-color: #d7d7d7;
+      border-radius: 0;
+      background: #f9f9f9;
+      box-shadow: none;
+      text-shadow: none;
+      color: #707070;
+      font-size: 15px;
+      line-height: 40px;
+      font-family: "Roboto-Regular", sans-serif;
+    }
+    .jq-selectbox__trigger-arrow {
+      border: none;
+      right: 20px;
+      top: -3px;
+      font-size: 15px;
+      &::before {
+        content: "\f0dd";
+        font-family: "icomoon";
+      }
+    }
+    .jq-selectbox__trigger {
+      border-left: none;
+    }
+  }
+}
+// end upload
+// start withdrawals
+.withdrawals {
+  margin-bottom: 144px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__col {
+    max-width: 570px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #dedede;
+    height: 100%;
+  }
+  &__title {
+    padding: 18px 32px 24px;
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 30px;
+    color: $bg;
+    @include f500;
+    font-size: 24px;
+  }
+  &__content {
+    padding-left: 35px;
+    padding-right: 40px;
+    button {
+      color: #fff;
+      background-color: $green;
+      border: none;
+      padding: 15px 36px;
+      margin-bottom: 50px;
+      cursor: pointer;
+    }
+  }
+  &__form-line {
+    margin-bottom: 25px;
+    label {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      @include f500;
+      margin-bottom: 15px;
+      color: $bg;
+      span {
+        color: $green;
+      }
+    }
+    input,
+    select {
+      width: 100%;
+      display: block;
+      border: 1px solid #d7d7d7;
+      height: 40px;
+      background-color: #f9f9f9;
+      padding: 0 18px;
+      &::placeholder {
+        color: #707070;
+      }
+    }
+    .jq-selectbox {
+      width: 100%;
+      &__select {
+        height: 40px;
+        padding: 0 18px;
+        border: 1px solid #d7d7d7;
+        border-bottom-color: #d7d7d7;
+        border-radius: 0;
+        background: #f9f9f9;
+        box-shadow: none;
+        text-shadow: none;
+        color: #707070;
+        font-size: 15px;
+        line-height: 40px;
+        font-family: "Roboto-Regular", sans-serif;
+      }
+      .jq-selectbox__trigger-arrow {
+        border: none;
+        right: 20px;
+        top: -3px;
+        font-size: 15px;
+        &::before {
+          content: "\f0dd";
+          font-family: "icomoon";
+        }
+      }
+      .jq-selectbox__trigger {
+        border-left: none;
+      }
+      .jq-selectbox__dropdown {
+        top: 40px;
+      }
+    }
+  }
+}
+.withdrawals__content {
+  &-items {
+    padding-bottom: 35px;
+  }
+  &-item {
+    display: flex;
+    height: 42px;
+    align-items: center;
+    font-size: 13px;
+    color: #444;
+    &:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+  }
+  &-date {
+    width: 154px;
+    padding-left: 20px;
+    @include f500;
+  }
+  &-email {
+    width: 180px;
+    @include f500;
+  }
+  &-price {
+    width: 70px;
+    @include f700;
+  }
+  &-status {
+    width: 88px;
+    @include f700;
+  }
+  &-paid {
+    color: $green;
+  }
+}
+// end withdrawals
 @import "media";
